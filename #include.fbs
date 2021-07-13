@@ -1,0 +1,14 @@
+#Uses "@|WIN32"
+$AppType Console
+#Include <Include\Fbsl.inc>
+  
+  Center( ME )
+  Show( ME )
+Dim %b, %hBtn = FBSL_DatePick("", ME, 1000, 0, 0, 170, 210)
+
+Begin Events
+  If CBCTL = 1000 And b = 0 Then
+    Alert( "Hello FBSL", "From Fbsl.inc file!" )
+    b = 1
+  End If
+End Events
