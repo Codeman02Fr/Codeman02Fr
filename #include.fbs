@@ -1,11 +1,20 @@
-#Uses "@|WIN32"
-$AppType Console
+// FBSL RC3.5 REVISION
+//
+// sample :create a form with date/time picker
+
+#AppType Console
+#Include <Include\Windows.inc>
 #Include <Include\Fbsl.inc>
   
-  Center( ME )
-  Show( ME )
-Dim %b, %hBtn = FBSL_DatePick("", ME, 1000, 0, 0, 170, 210)
+Dim %b, %hBtn
 
+
+
+hBtn = FBSL_DatePick("", ME, 1000, 0, 0, 170, 210)
+Center(ME)
+Show(ME)
+
+// msg handler
 Begin Events
   If CBCTL = 1000 And b = 0 Then
     Alert( "Hello FBSL", "From Fbsl.inc file!" )
