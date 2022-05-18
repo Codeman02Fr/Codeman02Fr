@@ -1,23 +1,23 @@
-// FBSL RC3.5 REVISION
+// FBSL RC3.5 REVISION sample file
 //
-// sample :create a form with date/time picker
+// sample :create a form with date/time picker and catch events
 
 #AppType Console
-#Include <Include\Windows.inc>
-#Include <Include\Fbsl.inc>
+#Include <Include\Windows.inc>  //include windows defines, macros etc...
+#Include <Include\Fbsl.inc>     //includes fbsl ones custom classes etc..
   
-Dim %b, %hBtn
+Dim %b, %hBtn  //create 2 integers vars
 
 
 
-hBtn = FBSL_DatePick("", ME, 1000, 0, 0, 170, 210)
-Center(ME)
-Show(ME)
+hBtn = FBSL_DatePick("", ME, 1000, 0, 0, 170, 210) //create control
+Center(ME) //center main form
+Show(ME)    //show it ;p
 
 // msg handler
-Begin Events
-  If CBCTL = 1000 And b = 0 Then
-    Alert( "Hello FBSL", "From Fbsl.inc file!" )
-    b = 1
+Begin Events // main event loop
+  If CBCTL = 1000 And b = 0 Then   if the ctrl id is our datepicker and it is the first time 
+    Alert( "Hello FBSL", "From Fbsl.inc file!" ) // print shit
+    b = 1 //set a bool value so it works 1 time only
   End If
 End Events
